@@ -1,0 +1,8 @@
+---
+- hosts: non-rpi-nodes
+  become: yes
+  tasks:
+    - name: install x11vnc
+      apt:
+        name: ["x11vnc"]
+        state: latest

@@ -1,0 +1,15 @@
+---
+- hosts: web-nodes
+  become: yes
+  tasks:
+    - name: install apache2 | php | libapache2-mod-php
+      apt:
+        name: ["apache2", "php", "libapache2-mod-php"]
+        state: latest
+    - name: pip3 install django
+      pip:
+        name:
+          - django
+          - Django
+          - django-imagekit
+        executable: pip3

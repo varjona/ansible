@@ -1,0 +1,19 @@
+---
+- hosts: rpi-nodes
+  become: yes
+  tasks:
+    - name: deploy rpi-aliases
+      shell:
+        cmd: cp /clusterfs/.rpi-aliases /home/sysadmin/
+- hosts: non-rpi-nodes
+  become: yes
+  tasks:
+    - name: deploy non-rpi-aliases
+      shell:
+        cmd: cp /clusterfs/.non-rpi-aliases /home/sysadmin
+- hosts: all
+  become: yes
+  tasks:
+    - name: deploy welcome | bash_aliases
+      shell:
+        cmd: cp /clusterfs/.welcome /clusterfs/.bash_aliases /home/sysadmin

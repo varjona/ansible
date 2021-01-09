@@ -1,0 +1,4 @@
+1) Allow root login in /etc/ssh/sshd.config
+2) Change passwd of root
+3) Reboot and login as root
+4 pkill -U pi && usermod -l sysadmin pi && usermod -m -d /home/sysadmin sysadmin
