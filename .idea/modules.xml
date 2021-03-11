@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ansible.iml" filepath="$PROJECT_DIR$/.idea/ansible.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python_scripts/.idea/python_scripts.iml" filepath="$PROJECT_DIR$/../python_scripts/.idea/python_scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../robot_framework/.idea/robot_framework.iml" filepath="$PROJECT_DIR$/../robot_framework/.idea/robot_framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../scilab/.idea/scilab.iml" filepath="$PROJECT_DIR$/../scilab/.idea/scilab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ti-basic/.idea/ti-basic.iml" filepath="$PROJECT_DIR$/../ti-basic/.idea/ti-basic.iml" />
+    </modules>
+  </component>
+</project>
