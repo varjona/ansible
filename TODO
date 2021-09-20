@@ -1,0 +1,7 @@
+This list is used to make a TODO list.
+
+- Shell script to setup everything in /etc/ansible
+- Playbooks/roles/variables to setup...
+	- Kubernetes (maybe K3S?)
+	- Database services
+	- VNC services (mainly for non-RPi servers) (refer to https://www.youtube.com/watch?v=3K1hUwxxYek)

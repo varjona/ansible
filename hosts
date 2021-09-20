@@ -1,39 +1,31 @@
-# [all]
-
-# ALL rpi NODES OWNED BY sysadmin
-[rpi_worker_nodes]
-node0[1:2]
-
-# THESE NODES ARE LAPTOPS OWNED BY sysadmin. FOR DETAILS, READ BELOW.
-[non_rpi_worker_nodes]
-
-# MASTER NODE
+# Master node
 [master_node]
 node00
 
+# All RPi nodes
+[rpi_worker_nodes]
+
+# All non-RPi nodes
+[non_rpi_worker_nodes]
+
+# All worker nodes
 [worker_nodes:children]
 rpi_worker_nodes
 non_rpi_worker_nodes
 
-# NODES
+# All nodes
 [nodes:children]
 master_node
 worker_nodes
 
-[pi_hole_node]
+# Pi-hole nodes
+[pi_hole_nodes]
 
-# THESE ARE EXTERNAL NODES/LAPTOPS/COMPUTERS THAT DO NOT BELONG TO
-#       sysadmin, AS IN THE ONE, THE ONLY, MOTHAFUCKIN' VICTOR ARJONA!
-#[ext-nodes]
+# External nodes (cloud nodes, nodes not owned by sysadmin, etc...)
+[ext_nodes]
 
-# WEB NODES OWNED BY sysadmin, DETAILS ABOVE.
+# Web hosting nodes
 [web_nodes]
 
-# MIND-MAPPING AND CAD NODES
-[design_nodes]
-
-# FILESHARE NODES
-[fs_server_nodes]
-
-# FILESHARE CLIENT NODES
-[fs_client_nodes]
+# Database nodes
+[db_nodes]
