@@ -1,14 +1,11 @@
-# Master node
-[master_node]
+# Ansible master nodes
+[master_nodes] 
 
 # All RPi nodes
 [rpi_worker_nodes]
 
 # Laptops/Desktops/Servers
 [non_rpi_worker_nodes]
-
-# Ansible master node
-[master_node]
 
 # All non-RPi nodes
 [non_rpi_worker_nodes]
@@ -40,3 +37,9 @@ worker_nodes
 
 # Database nodes
 [db_nodes]
+
+# Kubernetes masters nodes
+[ks_masters]
+
+# Kubernetes worker nodes
+[ks_workers]
