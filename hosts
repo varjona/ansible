@@ -1,9 +1,14 @@
 # Master node
 [master_node]
-node00
 
 # All RPi nodes
 [rpi_worker_nodes]
+
+# Laptops/Desktops/Servers
+[non_rpi_worker_nodes]
+
+# Ansible master node
+[master_node]
 
 # All non-RPi nodes
 [non_rpi_worker_nodes]
@@ -21,11 +26,17 @@ worker_nodes
 # Pi-hole nodes
 [pi_hole_nodes]
 
-# External nodes (cloud nodes, nodes not owned by sysadmin, etc...)
-[ext_nodes]
-
 # Web hosting nodes
 [web_nodes]
+
+# Fileshare hosts
+[fs_server_nodes]
+
+# Fileshare clients
+[fs_client_nodes]
+
+# Cloud/external servers
+[ext_nodes]
 
 # Database nodes
 [db_nodes]
