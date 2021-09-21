@@ -17,7 +17,7 @@ non_rpi_worker_nodes
 
 # All nodes
 [nodes:children]
-master_node
+master_nodes
 worker_nodes
 
 # Pi-hole nodes
