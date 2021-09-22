@@ -1,5 +1,5 @@
 ---
-- hosts: rpi_worker_nodes
+- hosts: rpi_3bp_worker_nodes
   become: yes
   tasks:
 #    - name: test for custom settings banner
