@@ -1,0 +1,60 @@
+---
+- hosts: rpi_3bp_worker_nodes
+  become: yes
+  tasks:
+#    - name: test for custom settings banner
+#      shell: grep -c "" /boot/config.txt
+#      register: test_banner
+#    - name: add custom settings banner
+#      lineinfile:
+#        dest: /boot/config.txt
+#        line: # CUSTOM SETTINGS. VISIT PAGE FOR MORE INFO:\n# https://haydenjames.io/raspberry-pi-3-overclock/
+    - name: test for custom arm_freq
+      shell: grep -c "arm_freq=1350" /boot/config.txt || true
+      register: test_arm_freq
+
+    - name: test for custom core_freq
+      shell: grep -c "core_freq=500" /boot/config.txt || true
+      register: test_core_freq
+
+    - name: test for custom over_voltage
+      shell: grep -c "over_voltage=4" /boot/config.txt || true
+      register: test_over_volt
+
+    - name: test for disable_splash
+      shell: grep -c "disable_splash=1" /boot/config.txt || true
+      register: test_splash
+
+    - name: test for custom gpu_mem
+      shell: grep -c "gpu_mem 320" /boot/config.txt || true
+      register: test_gpu_mem
+
+    - name: add custom arm_freq
+      lineinfile:
+        dest: /boot/config.txt
+        line: arm_freq=1350
+      when: test_arm_freq.stdout == "0"
+
+    - name: add custom core_freq
+      lineinfile:
+        dest: /boot/config.txt
+        line: core_freq=500
+      when: test_core_freq.stdout == "0"
+
+    - name: add custom over_voltage
+      lineinfile:
+        dest: /boot/config.txt
+        line: over_voltage=4
+      when: test_over_volt.stdout == "0"
+
+    - name: add disable_splash
+      lineinfile:
+        dest: /boot/config.txt
+        line: disable_splash=1
+      when: test_splash.stdout == "0"
+
+    - name: add custom gpu_mem
+      lineinfile:
+        dest: /boot/config.txt
+        line: gpu_mem=320
+      when: test_gpu_mem.stdout == "0"

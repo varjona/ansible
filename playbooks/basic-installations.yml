@@ -1,0 +1,8 @@
+---
+- hosts: db_nodes
+  become: yes
+  tasks:
+    - name: install database service
+      apt:
+        name: ["mysql-server"]
+        state: latest
