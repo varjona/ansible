@@ -8,7 +8,9 @@
 [rpi_4_worker_nodes] 
 
 # All RPi nodes
-[rpi_worker_nodes]
+[rpi_worker_nodes:children]
+rpi_3bp_worker_nodes
+rpi_4_worker_nodes
 
 # Laptops/Desktops/Servers
 [non_rpi_worker_nodes]
@@ -50,5 +52,3 @@ worker_nodes
 # Kubernetes worker nodes
 [ks_workers]
 
-# Halo LED controller
-[halo_led_controller]

@@ -4,5 +4,5 @@
   tasks:
     - name: install database service
       apt:
-        name: ["mysql-server"]
+        name: ["sqlite3"]
         state: latest
