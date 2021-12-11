@@ -1,8 +1,0 @@
----
-- hosts: db_nodes
-  become: yes
-  tasks:
-    - name: install database service
-      apt:
-        name: ["sqlite3"]
-        state: latest
