@@ -5,7 +5,9 @@
     name: ufw
     state: present
 
-- name: install mysql
-  apt:
-    name: mysql-server
-    state: present
+#- name: install mysql
+#  apt:
+#    name: mysql-server
+#    state: present
+
+- name:
