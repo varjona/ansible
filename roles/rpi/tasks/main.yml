@@ -1,2 +1,2 @@
 - name: overclock RPi 3B+
-  import_tasks: overclock-rpi-nodes.yml
+  import_tasks: overclock_rpi_nodes.yml
