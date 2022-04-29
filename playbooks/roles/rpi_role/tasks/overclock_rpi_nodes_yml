@@ -1,3 +1,4 @@
+---
 - name: test for custom arm_freq
   shell: grep -c "arm_freq=1350" /boot/config.txt || true
   register: test_arm_freq
