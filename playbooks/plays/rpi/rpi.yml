@@ -1,4 +1,4 @@
 ---
 - hosts: rpi_3bp_worker_nodes
   roles:
-    - ../roles/rpi
+    - playbooks/roles/rpi
