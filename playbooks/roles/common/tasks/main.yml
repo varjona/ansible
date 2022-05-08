@@ -2,7 +2,7 @@
 
 - name: install python
   apt:
-    name: python3
+    name: ["python3"]
     state: present
 
 # - name: install ufw on basebox
