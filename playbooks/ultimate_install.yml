@@ -1,0 +1,6 @@
+---
+# This is the ultimate install for this framework.
+
+- import_playbook: plays/common/common
+
+- import_playbook: plays/rpi/rpi

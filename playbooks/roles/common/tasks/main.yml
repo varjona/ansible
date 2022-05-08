@@ -1,13 +1,16 @@
 ---
 
-- name: install ufw on basebox
+- name: install python
   apt:
-    name: ufw
+    name: python3
     state: present
+
+# - name: install ufw on basebox
+#   apt:
+#     name: ufw
+#     state: present
 
 #- name: install mysql
 #  apt:
 #    name: mysql-server
 #    state: present
-
-- name:
