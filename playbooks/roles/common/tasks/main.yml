@@ -2,7 +2,8 @@
 
 - name: install python
   ansible.builtin.package:
-    name: "python3"
+    name:
+      - python3
     state: present
 
 # - name: install ufw on basebox
