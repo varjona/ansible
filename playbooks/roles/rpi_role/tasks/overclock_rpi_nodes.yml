@@ -1,22 +1,32 @@
 ---
 - name: test for custom arm_freq
-  shell: "grep -c 'arm_freq=1350' /boot/config.txt || true"
+  shell: "grep -c 'arm_freq=1350' config.txt || true"
+  args:
+    chdir: "/boot/"
   register: test_arm_freq
 
 - name: test for custom core_freq
-  shell: "grep -c 'core_freq=500' /boot/config.txt || true"
+  shell: "grep -c 'core_freq=500' config.txt || true"
+  args:
+    chdir: "/boot/"
   register: test_core_freq
 
 - name: test for custom over_voltage
-  shell: "grep -c 'over_voltage=4' /boot/config.txt || true"
+  shell: "grep -c 'over_voltage=4' config.txt || true"
+  args:
+    chdir: "/boot/"
   register: test_over_volt
 
 - name: test for disable_splash
-  shell: "grep -c 'disable_splash=1' /boot/config.txt || true"
+  shell: "grep -c 'disable_splash=1' config.txt || true"
+  args:
+    chdir: "/boot/"
   register: test_splash
 
 - name: test for custom gpu_mem
-  shell: "grep -c 'gpu_mem 320' /boot/config.txt || true"
+  shell: "grep -c 'gpu_mem 320' config.txt || true"
+  args:
+    chdir: "/boot/"
   register: test_gpu_mem
 
 - name: add custom arm_freq
