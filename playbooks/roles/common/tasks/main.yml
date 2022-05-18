@@ -2,8 +2,7 @@
 
 - name: install python
   ansible.builtin.package:
-    name:
-      - python3
+    name: "{{ common_packages_to_install }}"
     state: present
 
 - name: install general python packages
