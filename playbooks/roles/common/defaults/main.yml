@@ -1,0 +1,3 @@
+python_generic_packages:
+  - numpy
+  - pandas

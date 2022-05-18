@@ -6,6 +6,9 @@
       - python3
     state: present
 
+- name: install general python packages
+  pip:
+    name: "{{ python_generic_packages }}"
 # - name: install ufw on basebox
 #   apt:
 #     name: ufw
