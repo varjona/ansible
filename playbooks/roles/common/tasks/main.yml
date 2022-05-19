@@ -1,28 +1,14 @@
 ---
 
-# - name: install python
-#   ansible.builtin.package:
-#     name: "{{ common_packages_to_install }}"
-#     state: present
-
-- name: install python3
-  apt:
-    name: python3
-    state: present
-
-- name: install python3-apt
+- name: install python
   ansible.builtin.package:
-    name: python3-apt
-    state: present
-
-- name: install python3-pip
-  ansible.builtin.package:
-    name: python3-pip
+    name: "{{ common_packages_to_install }}"
     state: present
 
 - name: install general python packages
   pip:
     name: "{{ python_generic_packages }}"
+
 # - name: install ufw on basebox
 #   apt:
 #     name: ufw
