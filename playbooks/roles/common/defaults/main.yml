@@ -3,8 +3,5 @@ common_packages_to_install:
   - python3-pip
 
 python_generic_packages:
-  - apt_pkg
-  - apt
-  - apt_inst
   - numpy
   - pandas
