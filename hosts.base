@@ -1,19 +1,16 @@
 # Ansible master nodes
-[master_nodes] 
+[master_nodes]
 
 # All RPi 3B+ nodes
 [rpi_3bp_worker_nodes]
 
 # All RPi 4 nodes
-[rpi_4_worker_nodes] 
+[rpi_4_worker_nodes]
 
 # All RPi nodes
 [rpi_worker_nodes:children]
 rpi_3bp_worker_nodes
 rpi_4_worker_nodes
-
-# Laptops/Desktops/Servers
-[non_rpi_worker_nodes]
 
 # All non-RPi nodes
 [non_rpi_worker_nodes]
@@ -51,4 +48,3 @@ worker_nodes
 
 # Kubernetes worker nodes
 [ks_workers]
-
