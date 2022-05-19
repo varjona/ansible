@@ -1,6 +1,10 @@
 ---
+- name: remove python
+  ansible.builtin.package:
+    name: "python"
+    state: absent
 
-- name: install python
+- name: install python3
   ansible.builtin.package:
     name: "{{ common_packages_to_install }}"
     state: present
