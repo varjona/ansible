@@ -6,7 +6,7 @@
 #     state: present
 
 - name: install python3
-  ansible.builtin.package:
+  apt:
     name: python3
     state: present
 
