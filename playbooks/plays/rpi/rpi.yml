@@ -1,4 +1,0 @@
----
-- hosts: rpi_3bp_worker_nodes
-  roles:
-    - rpi_role
