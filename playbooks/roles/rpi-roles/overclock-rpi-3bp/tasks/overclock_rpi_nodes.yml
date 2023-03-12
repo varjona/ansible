@@ -24,7 +24,7 @@
   register: test_splash
 
 - name: test for custom gpu_mem
-  shell: "grep -c 'gpu_mem 320' config.txt || true"
+  shell: "grep -c 'gpu_mem 32' config.txt || true"
   args:
     chdir: "/boot/"
   register: test_gpu_mem
@@ -56,5 +56,5 @@
 - name: add custom gpu_mem
   lineinfile:
     dest: /boot/config.txt
-    line: gpu_mem=320
+    line: gpu_mem=32
   when: test_gpu_mem.stdout == "0"
