@@ -1,6 +1,0 @@
-sudo apt install cpufrequtils lm-sensors
-sudo sensors-detect
-        enter on everything
-        yes on adding to module
-sudo cpufreq-set -r -g performance
-
