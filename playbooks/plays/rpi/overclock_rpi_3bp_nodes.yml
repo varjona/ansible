@@ -1,0 +1,4 @@
+---
+- hosts: rpi_3bp_nodes
+  roles:
+    - rpi_roles/overclock_rpi_3bp_nodes
