@@ -1,2 +1,5 @@
 hosts
 ansible.cfg
+inventory/*
+!inventory/group_vars/
+!inventory/host_vars/
