@@ -1,14 +1,19 @@
 # Ansible master nodes
-[master_nodes]
+[ansible_master_nodes]
 
-# All RPi 3B+ nodes
-[rpi_3bp_worker_nodes]
+# All Ansible RPi 3B+ nodes
+[ansible_rpi_3bp_worker_nodes]
 
-# All RPi 4 nodes
-[rpi_4_worker_nodes]
+# All Ansible RPi 4 nodes
+[ansible_rpi_4_worker_nodes]
 
 # All non-RPi nodes
-[non_rpi_worker_nodes]
+[ansible_worker_nodes]
+
+# All RPi nodes
+[ansible_rpi_nodes:children]
+rpi_3bp_worker_nodes
+rpi_4_worker_nodes
 
 # Pi-hole nodes
 [pi_hole_nodes]
@@ -33,17 +38,3 @@
 
 # Kubernetes worker nodes
 [ks_workers]
-# All RPi nodes
-[rpi_worker_nodes:children]
-rpi_3bp_worker_nodes
-rpi_4_worker_nodes
-
-# All worker nodes
-[worker_nodes:children]
-rpi_worker_nodes
-non_rpi_worker_nodes
-
-# All nodes
-[nodes:children]
-master_nodes
-worker_nodes
