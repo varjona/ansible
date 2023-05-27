@@ -1,4 +1,0 @@
----
-- hosts: rpi_3bp_nodes
-  roles:
-    - rpi-roles/prepare_nu_rpi_3bp_nodes
