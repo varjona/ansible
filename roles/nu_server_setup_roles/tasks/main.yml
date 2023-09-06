@@ -26,3 +26,7 @@
         path: /etc/systemd/logind.conf
         line: 'HandleLidSwitch=ignore'
         state: present
+
+    - name: msg | restart to ensure changes take effect
+      ansible.builtin.debug:
+        msg: "Restart machines to ensure changes take effect"
