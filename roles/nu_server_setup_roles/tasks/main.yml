@@ -1,4 +1,5 @@
-# Learn to use regexp better...!
+# TODO: Learn to use regexp better...!
+# TODO: Use logic for which machine restarts systemd-logind.service
 
 ---
 - name: closing lid does nothing
@@ -27,6 +28,7 @@
         line: 'HandleLidSwitch=ignore'
         state: present
 
-    - name: msg | restart to ensure changes take effect
-      ansible.builtin.debug:
-        msg: "Restart machines to ensure changes take effect"
+    - name: restart systemd logind
+      ansible.builtin.systemd:
+        state: restarted
+        name: systemd-logind.service
