@@ -1,4 +1,0 @@
----
-- hosts: worker_nodes
-  roles:
-    - nu_server_setup_roles
