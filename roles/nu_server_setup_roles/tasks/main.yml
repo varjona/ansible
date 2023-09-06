@@ -1,0 +1,28 @@
+# Learn to use regexp better...!
+
+---
+- name: closing lid does nothing
+  block:
+    - name: check for lock
+      ansible.builtin.replace:
+        path: /etc/systemd/logind.conf
+        regexp: 'HandleLidSwitch=lock'
+        replace: 'HandleLidSwitch=ignore'
+
+    - name: check for hibernate
+      ansible.builtin.replace:
+        path: /etc/systemd/logind.conf
+        regexp: 'HandleLidSwitch=hibernate'
+        replace: 'HandleLidSwitch=ignore'
+
+    - name: check for shutdown
+      ansible.builtin.replace:
+        path: /etc/systemd/logind.conf
+        regexp: 'HandleLidSwitch=shutdown'
+        replace: 'HandleLidSwitch=ignore'
+
+    - name: ensure "HandleLidSwitch=ignore" is in the file
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/logind.conf
+        line: 'HandleLidSwitch=ignore'
+        state: present
