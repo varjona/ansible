@@ -2,21 +2,21 @@
 # TODO: Use logic for which machine restarts systemd-logind.service
 
 ---
-- name: closing lid does nothing
+- name: ensure closing lid does nothing and restart systemd-logind service
   block:
-    - name: check for lock
+    - name: check for lock and replace with ignore
       ansible.builtin.replace:
         path: /etc/systemd/logind.conf
         regexp: 'HandleLidSwitch=lock'
         replace: 'HandleLidSwitch=ignore'
 
-    - name: check for hibernate
+    - name: check for hibernate and replace with ignore
       ansible.builtin.replace:
         path: /etc/systemd/logind.conf
         regexp: 'HandleLidSwitch=hibernate'
         replace: 'HandleLidSwitch=ignore'
 
-    - name: check for shutdown
+    - name: check for shutdown and replace with ignore
       ansible.builtin.replace:
         path: /etc/systemd/logind.conf
         regexp: 'HandleLidSwitch=shutdown'
