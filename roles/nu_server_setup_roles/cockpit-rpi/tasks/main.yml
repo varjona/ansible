@@ -6,7 +6,6 @@
       ansible.builtin.package:
         name: 
           - cockpit
-          - cockpit-podman
         state: present
 
     # Ensure necessary ports are open.

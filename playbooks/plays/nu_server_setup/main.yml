@@ -1,7 +1,11 @@
 ---
-- hosts: all
+- hosts: worker_nodes
   roles:
     - nu_server_setup_roles/cockpit
+
+- hosts: rpi_nodes
+  roles:
+    - nu_server_setup_roles/cockpit-rpi
 
 - hosts: worker_nodes
   roles:
