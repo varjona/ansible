@@ -1,0 +1,5 @@
+---
+- name: install and setup K3S cluster
+  block:
+    # Install k3s
+    - name: 

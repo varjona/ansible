@@ -4,15 +4,33 @@
     # Install cockpit + other cockpit services.
     - name: install cockpit
       ansible.builtin.package:
-        name: 
-          - cockpit
-          - cockpit-podman
+        name: "{{ cockpit_extras }}"
         state: present
 
     # Ensure necessary ports are open.
-      # Cockpit Webservers (personal computer + one extra computer) should have all necessary ports.
+      # Cockpit Webservers (personal computer + one extra computer) should have all necessary ports open.
+    - name: setup webservers
+      firewalld:
+        port: "{{ cockpit_webserver_ports }}"
+        state: enabled
+        immediate: True
+        permanent: True
+      # if host is part of cockpit_webservers
+
       # Cockpit Machines should NOT have Cockpit Webservers enabled.
+    - name: setup non-webservers
+      firewalld:
+        port: "{{ cockpit_webserver_ports }}"
+        state: enabled
+        immediate: True
+        permanent: True
+      # if host is NOT part of cockpit_webservers
 
-    # Restart Cockpit Services
+    # Restart Cockpit Services/
+    - name: restart cockpit services
 
-    # Ensure only master machines host Cockpit Webservers
+    # Ensure only master machines host Cockpit Webservers.
+    # Tested by CURLing URLs composed of hostnames and associated ports,
+    # Example:
+    #   http://node00:9090
+    - name: confirm only selected hosts are webservers
