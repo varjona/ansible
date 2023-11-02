@@ -1,0 +1,30 @@
+---
+- name: setup cockpit nodes
+  block:
+    # Install cockpit + other cockpit services.
+    - name: install cockpit
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ cockpit_extras }}"
+        
+    - name: setup cockpit node ports
+      block:
+        - name: close ports with firewalld
+          firewalld:
+            port: "{{ item }}"
+            state: disabled
+            immediate: True
+            permanent: True
+          with_items: "{{ cockpit_webserver_ports }}"
+
+        #- name: drop in Jinja template for nodes_override.conj.j2
+  # if host is NOT in cockpit_webservers group
+    # Restart Cockpit Services/
+    - name: restart cockpit services
+      ansible.builtin.service:
+        name: "{{ items }}"
+        state: restarted
+      with_items: "{{ non_webserver_services_to_restart }}"
+
+    - name: confirm only selected hosts are webservers

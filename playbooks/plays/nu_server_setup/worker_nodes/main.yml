@@ -1,0 +1,8 @@
+---
+- hosts: worker_nodes
+  roles:
+    - nu_server_setup_roles/worker_nodes/cockpit
+
+- hosts: worker_nodes
+  roles:
+    - nu_server_setup_roles/worker_nodes/lids

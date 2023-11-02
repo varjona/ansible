@@ -1,0 +1,4 @@
+---
+- hosts: cockpit_webservers
+  roles:
+    - nu_server_setup_roles/cockpit_roles/cockpit_webservers_roles

@@ -1,0 +1,36 @@
+---
+- name: setup cockpit webservers
+  block:
+    # Install cockpit + other cockpit services.
+    - name: install cockpit
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ cockpit_extras }}"
+    
+    # Setup ports
+    #   First, open firewall accordingly
+    - name: setup cockpit webserver ports
+      block:
+        - name: open ports with firewalld
+          firewalld:
+            port: "{{ item }}"
+            state: enabled
+            immediate: True
+            permanent: True
+          with_items: "{{ cockpit_webserver_ports }}"
+
+        - name: drop in an override conf for cockpit webservers
+          template:
+            src: override.conf.j2
+            dest: "{{ cockpit_socket_override_conf_dir}}{{cockpit_socket_override_conf_fname }}"
+
+    # Restart Cockpit Services/
+    - name: restart cockpit services
+      ansible.builtin.service:
+        name: "{{ items }}"
+        state: restarted
+      with_items:
+        - cockpit.socket
+
+    - name: confirm only selected hosts are webservers

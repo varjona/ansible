@@ -1,0 +1,6 @@
+[Socket]
+ListenStream=
+{% for port in cockpit_webserver_ports %}
+ListenStream={{ port }}
+{% endfor %}
+FreeBind=yes

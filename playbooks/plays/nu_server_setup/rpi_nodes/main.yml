@@ -1,0 +1,4 @@
+---
+- hosts: rpi_nodes
+  roles:
+    - nu_server_setup_roles/rpi_nodes/cockpit
