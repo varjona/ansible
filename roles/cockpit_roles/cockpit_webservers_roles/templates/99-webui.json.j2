@@ -1,0 +1,9 @@
+{
+{% for host in groups["all"] %}
+  "{{ host }}": {
+    "visible": true,
+    "address": "{{ host }}"
+  }{% if not loop.last %},{% endif %}
+  
+{% endfor %}
+}

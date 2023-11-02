@@ -1,0 +1,12 @@
+cockpit_webserver_extras:
+  - cockpit
+  - cockpit-podman
+
+cockpit_webserver_ports:
+  - 9090
+
+cockpit_machines_dir: "/etc/cockpit/machines.d/"
+cockpit_machines_fn: "99-webui.json"
+
+cockpit_socket_override_conf_fname: "override.conf"
+cockpit_socket_override_conf_dir: "/etc/systemd/system/cockpit.socket.d/"
