@@ -18,6 +18,11 @@
             permanent: True
           with_items: "{{ cockpit_webserver_ports }}"
 
+        - name: delete a systemd cockpit.socket.d override directory if it exists
+          ansible.builtin.file:
+            path: "{{ cockpit_socket_override_conf_dir }}"
+            state: absent
+
 #        - name: ensure override for cockpit.socket does not exist
 
     # Disable Cockpit Services
