@@ -35,7 +35,6 @@
             permanent: True
           with_items: "{{ cockpit_webserver_ports }}"
 
-
         - name: Create a systemd cockpit.socket override directory if it does not exist
           ansible.builtin.file:
             path: "{{ cockpit_socket_override_conf_dir }}"
@@ -44,7 +43,7 @@
             owner: root
             group: root
 
-        - name: drop in an override.conf templatefor cockpit webservers
+        - name: drop in an override.conf template for cockpit webservers
           template:
             src: override.conf.j2
             dest: "{{ cockpit_socket_override_conf_dir }}{{ cockpit_socket_override_conf_fname }}"

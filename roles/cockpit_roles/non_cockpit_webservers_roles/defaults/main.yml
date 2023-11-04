@@ -4,3 +4,5 @@ cockpit_webserver_extras:
 
 cockpit_webserver_ports:
   - 909
+
+cockpit_socket_override_conf_dir: "/etc/systemd/system/cockpit.socket.d/"
