@@ -18,13 +18,15 @@
             permanent: True
           with_items: "{{ cockpit_webserver_ports }}"
 
-        #- name: drop in Jinja template for nodes_override.conj.j2
-  # if host is NOT in cockpit_webservers group
-    # Restart Cockpit Services/
-    - name: restart cockpit services
+    # Disable Cockpit Services
+    - name: disable cockpit services
       ansible.builtin.service:
-        name: "{{ items }}"
+        name: "{{ item }}"
         state: restarted
-      with_items: "{{ non_webserver_services_to_restart }}"
+      with_items:
+        - cockpit.socket
+        - cockpit.service
+      when:
+        - "'master_nodes' not in group_names"
 
-    - name: confirm only selected hosts are webservers
+#    - name: confirm only selected hosts are webservers

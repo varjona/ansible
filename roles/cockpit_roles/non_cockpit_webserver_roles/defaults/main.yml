@@ -1,7 +1,6 @@
 cockpit_webserver_extras:
   - cockpit
   - cockpit-podman
-  - cockpit-dashboard
 
 cockpit_webserver_ports:
-  - 9090
+  - 909

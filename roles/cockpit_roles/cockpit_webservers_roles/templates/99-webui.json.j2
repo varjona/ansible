@@ -1,9 +1,14 @@
 {
 {% for host in groups["all"] %}
+  {% if  host not in ansible_facts["hostname"] %}
+    {% if host not in groups["master_nodes"] %}
+
   "{{ host }}": {
     "visible": true,
     "address": "{{ host }}"
   }{% if not loop.last %},{% endif %}
-  
+
+    {% endif  %}
+  {% endif  %}
 {% endfor %}
 }
