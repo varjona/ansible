@@ -23,8 +23,6 @@
             path: "{{ cockpit_socket_override_conf_dir }}"
             state: absent
 
-#        - name: ensure override for cockpit.socket does not exist
-
     # Disable Cockpit Services
     - name: disable cockpit services
       ansible.builtin.service:
@@ -36,5 +34,3 @@
         - cockpit.service
       when:
         - "'master_nodes' not in group_names"
-
-#    - name: confirm only selected hosts are webservers
