@@ -36,16 +36,16 @@ rpi_4
 # Database nodes
 [db_nodes]
 
-# Kubernetes masters nodes
-[ks_masters]
+# Kubernetes server nodes
+[ks_servers]
 
-# Kubernetes worker nodes
-[ks_workers]
+# Kubernetes agent nodes
+[ks_agents]
 
 # Kubernetes cluster
 [ks_cluster:children]
-ks_masters
-ks_workers
+ks_servers
+ks_agents
 
 # Wireless nodes
 [wireless_nodes]

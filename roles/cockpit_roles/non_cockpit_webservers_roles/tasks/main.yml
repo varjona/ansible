@@ -10,13 +10,12 @@
         
     - name: setup cockpit node ports
       block:
-        - name: close ports with firewalld
-          firewalld:
-            port: "{{ item }}/tcp"
-            state: disabled
-            immediate: True
-            permanent: True
-          with_items: "{{ cockpit_webserver_ports }}"
+        - name: close ports with ufw
+          community.general.ufw:
+            rule: deny
+            port: "{{ item['port'] }}"
+            proto: "{{ item['protocol'] }}"
+          loop: "{{ cockpit_webserver_ports }}"
 
         - name: delete a systemd cockpit.socket.d override directory if it exists
           ansible.builtin.file:

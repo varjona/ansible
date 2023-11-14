@@ -3,6 +3,7 @@ cockpit_webserver_extras:
   - cockpit-podman
 
 cockpit_webserver_ports:
-  - 909
+  - "port": "9090"
+    "protocol": "tcp"
 
 cockpit_socket_override_conf_dir: "/etc/systemd/system/cockpit.socket.d/"

@@ -1,6 +1,6 @@
 [Socket]
 ListenStream=
-{% for port in cockpit_webserver_ports %}
-ListenStream={{ port }}
+{% for element in cockpit_webserver_ports %}
+ListenStream={{ element["port"] }}
 {% endfor %}
 FreeBind=yes

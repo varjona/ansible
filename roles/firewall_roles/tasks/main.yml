@@ -1,13 +1,9 @@
 ---
-- name: setup cockpit webservers
-  block:
-    # Install cockpit + other cockpit services.
-    - name: install cockpit
-      ansible.builtin.package:
-        name: "{{ item }}"
-        state: present
-      with_items: "{{ cockpit_webserver_extras }}"
-    
+- name: ensure ufw is installed
+  ansible.builtin.package:
+    name: "ufw"
+    state: latest
+ 
     # Add cockpit machines.
     # When jinja2 template goes into webserver, the 
     - name: Create a machines.d directory if it does not exist
