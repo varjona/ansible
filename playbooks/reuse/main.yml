@@ -1,0 +1,3 @@
+---
+import_tasks: cockpit/cockpit_webservers/main.yml
+#import_playbook: rpi_nodes/main.yml

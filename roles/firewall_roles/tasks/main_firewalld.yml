@@ -1,0 +1,25 @@
+---
+# FirewallD was selected as the de-facto firewall service because it works with
+#   Cockpit service, it is Open Source, and there is an Ansible module to
+#   manage it.
+- name: ensure firewalld is installed
+  ansible.builtin.package:
+    name: "firewalld"
+    state: latest
+
+# In the defaults
+- name: setup ports
+  block:
+    - name: enable port for "{{ item['label'] }}"
+      ansible.posix.firewalld:
+        port: "{{ item['port']}}/{{ item['protocol']}}"
+        permanent: True
+        state: enabled
+      with_items:
+        - "{{ firewall_default_allowed_ports }}"
+
+# Enable FirewallD
+# - name: enable firewalld
+#   ansible.builtin.service:
+#     name: "firewalld"
+#     state: enabled

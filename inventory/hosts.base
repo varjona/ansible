@@ -1,0 +1,54 @@
+# Ansible master nodes
+[master_nodes]
+
+# RPi 3B+ nodes
+[rpi_3bp]
+
+# All Ansible RPi 4 nodes
+[rpi_4]
+
+# All non-RPi nodes
+[worker_nodes]
+
+# All RPi nodes
+[rpi_nodes:children]
+rpi_3bp
+rpi_4
+
+# Pi-hole nodes
+[pi_hole_nodes]
+
+# Cockpit webservers
+[cockpit_webservers]
+
+# Web hosting nodes
+[web_nodes]
+
+# EXT Volume Servers
+[ext_vol_servers]
+
+# EXT Volume Clients
+[ext_vol_clients]
+
+# Cloud/external servers
+[ext_nodes]
+
+# Database nodes
+[db_nodes]
+
+# Kubernetes server nodes
+[ks_servers]
+
+# Kubernetes agent nodes
+[ks_agents]
+
+# Kubernetes cluster
+[ks_cluster:children]
+ks_servers
+ks_agents
+
+# Wireless nodes
+[wireless_nodes]
+
+# Wired nodes
+[wired_nodes]

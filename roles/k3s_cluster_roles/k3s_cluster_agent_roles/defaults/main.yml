@@ -1,0 +1,6 @@
+# Look at Inbound Rules for K3S Server Nodes
+#   https://docs.k3s.io/installation/requirements
+k3s_master_ports:
+  - "6443/TCP"
+  - 
+

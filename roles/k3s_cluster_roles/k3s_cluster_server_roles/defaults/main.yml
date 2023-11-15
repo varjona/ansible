@@ -1,0 +1,11 @@
+# Look at Inbound Rules for K3S Server Nodes
+#   https://docs.k3s.io/installation/requirements
+k3s_agent_ports:
+  - "port": "2379"
+    "protocol": "tcp"
+
+  - "port": "2380"
+    "protocol": "tcp"
+
+  - "port": "10250"
+    "protocol": "tcp"
