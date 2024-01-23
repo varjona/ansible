@@ -1,0 +1,22 @@
+---
+
+- name: set rule for ports
+  community.general.ufw:
+    policy: "allow"
+
+- name: set rule for ports
+  community.general.ufw:
+    rule: "{{ item['rule'] }}"
+    port: "{{ item['port'] }}"
+    proto: "{{ item['protocol'] }}"
+    comment: "{{ item['comment'] }}"
+  loop: "{{ firewall_default_allowed_ports }}"
+
+- name: set rules for ports for pi_hole_nodes
+  community.general.ufw:
+    rule: "{{ item['rule'] }}"
+    port: "{{ item['port'] }}"
+    proto: "{{ item['protocol'] }}"
+    comment: "{{ item['comment'] }}"
+  loop: "{{ pihole_default_allowed_ports }}"
+  when: "'pi_hole_nodes' in group_names"

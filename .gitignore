@@ -3,4 +3,4 @@ ansible.cfg
 inventory/all_hosts
 !inventory/group_vars/
 !inventory/host_vars/
-roles/firewall_roles/install/defaults/main.yml
+roles/firewall_roles/*/defaults/main.yml
