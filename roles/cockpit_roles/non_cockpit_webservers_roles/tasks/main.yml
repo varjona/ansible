@@ -7,7 +7,7 @@
         name: "{{ item }}"
         state: present
       with_items: "{{ cockpit_webserver_extras }}"
-        
+
     - name: setup cockpit node ports
       block:
         - name: close ports with ufw
@@ -31,5 +31,3 @@
       with_items:
         - cockpit.socket
         - cockpit.service
-      when:
-        - "'master_nodes' not in group_names"
