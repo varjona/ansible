@@ -1,4 +1,4 @@
 ---
-- hosts: all:!pi_hole_nodes
+- hosts: all
   roles:
     - firewall_roles
