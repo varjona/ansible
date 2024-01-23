@@ -1,13 +1,11 @@
 cockpit_webserver_extras:
   - cockpit
   - cockpit-podman
+  - cockpit-networkmanager
 
 cockpit_webserver_ports:
   - "port": "9090"
     "protocol": "tcp"
-  
-#  - "port":
-#    "protocol":
 
 cockpit_machines_dir: "/etc/cockpit/machines.d/"
 cockpit_machines_fn: "99-webui.json"
