@@ -1,13 +1,13 @@
 ---
 
-- name: install ufw and set ports
+- name: install ufw and set files in place
   block:
     - name: ensure ufw is installed
       ansible.builtin.package:
         name: "ufw"
         state: latest
 
-    - name: ensure all necessary files are in /etc/ufw/
+    - name: check all necessary files are in /etc/ufw/
       block:
         - name: list all files in /etc/ufw/
           ansible.builtin.find:
@@ -27,24 +27,3 @@
             mode: "0640"
           loop: "{{ ufw_files_needed }}"
           when: "item not in list_ufw_files"
-
-    - name: set rule for ports
-      community.general.ufw:
-        policy: "allow"
-
-    - name: set rule for ports
-      community.general.ufw:
-        rule: "{{ item['rule'] }}"
-        port: "{{ item['port'] }}"
-        proto: "{{ item['protocol'] }}"
-        comment: "{{ item['comment'] }}"
-      loop: "{{ firewall_default_allowed_ports }}"
-
-    - name: set rules for ports for pi_hole_nodes
-      community.general.ufw:
-        rule: "{{ item['rule'] }}"
-        port: "{{ item['port'] }}"
-        proto: "{{ item['protocol'] }}"
-        comment: "{{ item['comment'] }}"
-      loop: "{{ pihole_default_allowed_ports }}"
-      when: "'pi_hole_nodes' in group_names"
