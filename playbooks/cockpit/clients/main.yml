@@ -1,4 +1,4 @@
 ---
 - hosts: worker_nodes:!cockpit_webservers
   roles:
-    - cockpit_roles/non_cockpit_webservers_roles
+    - cockpit_roles/clients_roles

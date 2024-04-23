@@ -27,13 +27,13 @@
     #   First, open ufw accordingly
     - name: setup cockpit webserver ports
       block:
-        - name: open ports with ufw
-          community.general.ufw:
-            rule: allow
-            port: "{{ item['port'] }}"
-            state: enabled
-            proto: "{{ item['protocol'] }}"
-          loop: "{{ cockpit_webserver_ports }}"
+        # - name: open ports with ufw
+        #   community.general.ufw:
+        #     rule: allow
+        #     port: "{{ item['port'] }}"
+        #     state: enabled
+        #     proto: "{{ item['protocol'] }}"
+        #   loop: "{{ cockpit_webserver_ports }}"
 
         - name: create a systemd cockpit.socket.d override directory if it does not exist
           ansible.builtin.file:
@@ -53,7 +53,7 @@
       ansible.builtin.service:
         name: "{{ item }}"
         state: restarted
-      with_items:
+      loop:
         - cockpit.socket
       when:
         - "'master_nodes' not in group_names"
