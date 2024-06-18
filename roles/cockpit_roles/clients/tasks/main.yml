@@ -1,0 +1,31 @@
+---
+# Install cockpit + other cockpit services.
+- name: install cockpit
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ cockpit_webserver_extras }}"
+    
+# - name: setup cockpit node ports
+#   block:
+#     - name: close ports with ufw
+#       community.general.ufw:
+#         rule: deny
+#         port: "{{ item['port'] }}"
+#         proto: "{{ item['protocol'] }}"
+#       loop: "{{ cockpit_webserver_ports }}"
+
+- name: delete a systemd cockpit.socket.d override directory if it exists
+  ansible.builtin.file:
+    path: "{{ cockpit_socket_override_conf_dir }}"
+    state: absent
+
+# Disable Cockpit Services
+- name: disable cockpit services
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: False
+  loop:
+    - cockpit.socket
+    - cockpit.service

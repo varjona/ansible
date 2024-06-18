@@ -1,3 +1,0 @@
----
-#import_playbook: cockpit/cockpit_webservers/main.yml
-- import_playbook: ./cockpit/non_cockpit_webservers/main.yml

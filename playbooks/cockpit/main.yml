@@ -1,0 +1,4 @@
+---
+
+import_playbook: webservers/install.yml
+import_playbook: clients/install.yml
