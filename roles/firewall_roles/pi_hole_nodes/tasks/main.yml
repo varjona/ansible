@@ -17,7 +17,7 @@
         port: "{{ item['port'] }}"
         state: enabled
         proto: "{{ item['protocol'] }}"
-        comment: "{{ item['label'] }}"
+        comment: "{{ item['name'] }}"
       with_items:
         - "{{ firewall_default_allowed_ports }}"
 

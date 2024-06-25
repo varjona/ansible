@@ -4,7 +4,7 @@
 
   "{{ host }}": {
     "visible": true,
-    "address": "{{ host }}"
+    "address": "{{ host }}.{{ custom_lan }}"
   }{% if not loop.last %},{% endif %}
 
   {% endif  %}
