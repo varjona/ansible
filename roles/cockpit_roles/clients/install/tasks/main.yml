@@ -1,11 +1,19 @@
 ---
 # Install cockpit + other cockpit services.
-- name: install cockpit
+- name: install cockpit on none-RPi machines
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
-  with_items: "{{ cockpit_webserver_extras }}"
-    
+  with_items: "{{ cockpit_webserver_pkgs }}"
+  when: inventory_hostname not in groups["rpi_nodes"]
+
+- name: install cockpit on RPi machines
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ cockpit_webserver_pkgs }}"
+  when: inventory_hostname in groups["rpi_nodes"]
+
 # - name: open ports with ufw
 #   block:
 #     - name: close ports with ufw
