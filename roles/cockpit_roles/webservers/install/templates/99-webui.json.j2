@@ -1,10 +1,10 @@
 {
 {% for host in groups["all"] %}
-  {% if  host not in ansible_facts["hostname"] %}
+  {% if ansible_facts["hostname"] not in host %}
 
   "{{ host }}": {
     "visible": true,
-    "address": "{{ host }}.{{ custom_lan }}"
+    "address": "{{ host }}"
   }{% if not loop.last %},{% endif %}
 
   {% endif  %}

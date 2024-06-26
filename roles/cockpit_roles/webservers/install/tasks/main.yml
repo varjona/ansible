@@ -20,13 +20,13 @@
     src: 99-webui.json.j2
     dest: "{{ cockpit_machines_dir }}{{ cockpit_machines_fn }}"
 
-- name: open ports with ufw
-  community.general.ufw:
-    rule: allow
-    port: "{{ item['port'] }}"
-    state: enabled
-    proto: "{{ item['protocol'] }}"
-  loop: "{{ cockpit_webserver_ports }}"
+#- name: open ports with ufw
+#  community.general.ufw:
+#    rule: allow
+#    port: "{{ item['port'] }}"
+#    state: enabled
+#    proto: "{{ item['protocol'] }}"
+#  loop: "{{ cockpit_webserver_ports }}"
 
 - name: create a systemd cockpit.socket.d override directory if it does not exist
   ansible.builtin.file:

@@ -1,8 +1,5 @@
 ---
-# FirewallD was selected as the de-facto firewall service because it works with
-#   Cockpit service, it is Open Source, and there is an Ansible module to
-#   manage it. On the other hand, RPi 3B+ doesn't work very well with FirewallD.
-#   So might as well have both readily available and test
+# TODO - Test!
 - name: ensure ufw is installed
   ansible.builtin.package:
     name: "ufw"
@@ -20,10 +17,3 @@
         comment: "{{ item['name'] }}"
       with_items:
         - "{{ firewall_default_allowed_ports }}"
-
-
-# Enable FirewallD
-# - name: enable firewalld
-#   ansible.builtin.service:
-#     name: "firewalld"
-#     state: enabled
