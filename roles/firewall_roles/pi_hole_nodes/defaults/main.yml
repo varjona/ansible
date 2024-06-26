@@ -1,0 +1,27 @@
+---
+# TODO - Test!
+
+firewall_default_allowed_ports:
+  - "port": "22"
+    "protocol": "tcp"
+    "name": "ssh"
+
+  - "port": "53"
+    "protocol": "any"
+    "name": "dns"
+
+  - "port": "67"
+    "protocol": "udp"
+    "name": "dhcp"
+
+  - "port": "547"
+    "protocol": "udp"
+    "name": "dhcpv6"
+
+  - "port": "4711"
+    "protocol": "tcp"
+    "name": "pihole-ftl-api"
+
+  - "port": "80"
+    "protocol": "tcp"
+    "name": "http"

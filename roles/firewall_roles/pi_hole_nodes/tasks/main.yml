@@ -1,0 +1,19 @@
+---
+# TODO - Test!
+- name: ensure ufw is installed
+  ansible.builtin.package:
+    name: "ufw"
+    state: latest
+
+# In the defaults
+- name: setup ports
+  block:
+    - name: enable port for "{{ item['label'] }}"
+      community.general.ufw:
+        rule: allow
+        port: "{{ item['port'] }}"
+        state: enabled
+        proto: "{{ item['protocol'] }}"
+        comment: "{{ item['name'] }}"
+      with_items:
+        - "{{ firewall_default_allowed_ports }}"
