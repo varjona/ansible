@@ -6,3 +6,4 @@ ansible.cfg
 inventory/*
 inventory/group_vars/*
 inventory/host_vars/*
+.idea/vcs.xml
