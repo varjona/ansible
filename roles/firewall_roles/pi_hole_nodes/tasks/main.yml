@@ -15,5 +15,5 @@
         state: enabled
         proto: "{{ item['protocol'] }}"
         comment: "{{ item['name'] }}"
-      with_items:
+      loop:
         - "{{ firewall_default_allowed_ports }}"
