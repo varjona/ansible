@@ -1,0 +1,9 @@
+---
+#- import_playbook: dependency_check.yml
+
+- hosts: cockpit_webservers
+  roles:
+    - cockpit_roles/webservers/install
+
+
+#- import_playbook: service_check.yml

@@ -1,7 +1,11 @@
-cockpit_webserver_extras:
+---
+cockpit_webserver_pkgs:
   - cockpit
   - cockpit-podman
   - cockpit-networkmanager
+
+rpi_cockpit_webservers_pkgs:
+  - cockpit
 
 cockpit_webserver_ports:
   - "port": "9090"

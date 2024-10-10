@@ -1,0 +1,6 @@
+---
+
+# Run first for pi_hole_nodes to have DHCP and DNS server working.
+- hosts: pi_hole_nodes
+  roles:
+    - firewall_roles/pi_hole_nodes
