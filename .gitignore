@@ -1,8 +1,12 @@
 hosts
 ansible.cfg
+
+inventory/*
 !inventory/hosts.base
 !inventory/group_vars/group1_vars
 !inventory/host_vars/host1_var
-inventory/*
 inventory/group_vars/*
 inventory/host_vars/*
+
+.idea/
+.idea/vcs.xml

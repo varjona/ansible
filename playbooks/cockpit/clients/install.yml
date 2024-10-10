@@ -1,7 +1,7 @@
 ---
 #- import_playbook: dependency_check.yml
 
-- hosts: worker_nodes:!cockpit_webservers
+- hosts: all:!cockpit_webservers
   roles:
     - cockpit_roles/clients/install
 
