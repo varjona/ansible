@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "{{ config_vm_box }}"
+  config.vm.synced_folder "../data", "/vagrant_data", disabled: true
+  config.ssh.insert_key = false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = "{{ config_vm_provider['gui'] }}"
+    vb.memory = "{{ config_vm_provider['memory'] }}"
+    vb.linked_clone = "{{ config_vm_provider['linked_cloned'] }}"
+  end
+
+{% for ii in range(no_of_vms) %}
+  config.vm.define "{{ config_vm_define['default_name']ii }}" do |"{{ config_vm_define['default_pseudoname']ii }}"|
+    vm1.vm.hostname = "config_vm_define['default_name']ii.config_vm_define['default_domain']"
+  end
+{% done %}
+
+end

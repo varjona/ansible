@@ -1,0 +1,5 @@
+---
+
+- hosts: vm_hosts
+  roles:
+    - vm_roles/service_check

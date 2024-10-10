@@ -54,3 +54,6 @@ ks_agents
 
 # Wired nodes
 [wired_nodes]
+
+# VM Hosts
+[vm_hosts]

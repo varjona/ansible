@@ -1,0 +1,15 @@
+---
+
+config_vm_box: "debian/jessie64"
+
+config_vm_provider:
+  gui: false
+  memory: "256"
+  linked_clone: true
+
+config_vm_define:
+  - default_name: "debian-vm"
+  - default_pseudoname: "vm"
+  - default_domain: "domain-test"
+
+no_of_vms: 3
