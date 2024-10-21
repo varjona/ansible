@@ -1,8 +1,0 @@
-Welcome to my Ansible-focused repository!
-
-What it does:
-    - Sets up a Cockpit Cluster
-    - Sets up Pi-Hole (todo)
-    - Sets up a Firewall (UFW) (in-progress)
-    - Sets up a K3S Cluster (todo)
-    - Sets up RPis for success, baby!
