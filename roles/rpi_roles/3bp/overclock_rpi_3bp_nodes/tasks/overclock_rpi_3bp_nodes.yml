@@ -1,0 +1,12 @@
+---
+
+- name: add custom values in boot/config
+  lineinfile:
+    dest: /boot/config.txt
+    line: "{{ item }}"
+  loop:
+    - "arm_freq=1350"
+    - "core_freq=500"
+    - "over_voltage=4"
+    - "disable_splash=1"
+    - "gpu_mem=32"
