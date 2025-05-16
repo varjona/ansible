@@ -1,9 +1,0 @@
----
-- name: install python3
-  ansible.builtin.package:
-    name: "{{ common_packages_to_install }}"
-    state: present
-
-- name: install general python packages
-  pip:
-    name: "{{ python_generic_packages }}"
