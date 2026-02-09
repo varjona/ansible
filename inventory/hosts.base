@@ -1,8 +1,5 @@
 localhost   ansible_connection=local
 
-# Ansible master nodes
-[master_nodes]
-
 # RPi 3B+ nodes
 [rpi_3bp]
 
@@ -22,6 +19,9 @@ rpi_4
 
 # Cockpit webservers
 [cockpit_webservers]
+
+# Ajanti servers
+[ajanti_servers]
 
 # Web hosting nodes
 [web_nodes]

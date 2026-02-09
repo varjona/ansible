@@ -1,0 +1,14 @@
+[defaults]
+nocows = True
+
+remote_tmp = $HOME/.ansible/tmp
+local_tmp  = $HOME/.ansible/tmp
+pipelining = True
+become = True
+host_key_checking = True
+deprecation_warnings = False
+callback_whitelist = profile_tasks
+
+roles_path = roles/
+playbook_dir = playbooks/
+inventory  = inventory/all_hosts.yml
