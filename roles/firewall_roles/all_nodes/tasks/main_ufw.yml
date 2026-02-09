@@ -18,12 +18,5 @@
         state: enabled
         proto: "{{ item['protocol'] }}"
         comment: "{{ item['label'] }}"
-      with_items:
+      loop:
         - "{{ firewall_default_allowed_ports }}"
-
-
-# Enable FirewallD
-# - name: enable firewalld
-#   ansible.builtin.service:
-#     name: "firewalld"
-#     state: enabled
