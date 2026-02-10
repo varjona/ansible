@@ -16,10 +16,10 @@
         permanent: True
         state: enabled
       with_items:
-        - "{{ firewall_default_allowed_ports }}"
+        - "{{ firewalld_default_ports }}"
 
 # Enable FirewallD
-# - name: enable firewalld
-#   ansible.builtin.service:
-#     name: "firewalld"
-#     state: enabled
+ - name: enable firewalld
+   ansible.builtin.service:
+     name: "firewalld"
+     state: enabled

@@ -1,4 +1,4 @@
-firewall_default_allowed_ports:
+firewalld_default_ports:
   - "port": "22"
     "protocol": "tcp"
     "label": "ssh"

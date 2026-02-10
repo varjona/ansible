@@ -1,23 +1,35 @@
 ---
+# UFW URL
+#   https://wiki.ubuntu.com/UncomplicatedFirewall
+- name: ensure ufw is installed
+  ansible.builtin.package:
+    name: "ufw"
+    state: latest
 
-- name: install ufw and set files in place
-  block:
-    - name: ensure ufw is installed
-      ansible.builtin.package:
-        name: "ufw"
-        state: latest
+- name: list all files in /etc/ufw/
+  ansible.builtin.find:
+    paths: /etc/ufw/
+    recurse: no
+    file_type: file
+  register: list_ufw_files_return
 
-    - name: list all files in /etc/ufw/
-      ansible.builtin.find:
-        paths: /etc/ufw/
-        recurse: no
-        file_type: file
-      register: list_ufw_files_return
+- name: ensure default needed files exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: touch
+    mode: "0640"
+    modification_time: preserve
+    access_time: preserve
+  loop: "{{ ufw_files_needed }}"
+  when: "item not in {{ list_ufw_files_return['files'] | map(attribute='path') | list }}"
 
-    - name: ensure default needed files exist
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: touch
-        mode: "0640"
-      loop: "{{ ufw_files_needed }}"
-      when: "item not in {{ list_ufw_files_return['files'] | map(attribute='path') | list }}"
+# In the defaults
+- name: enable default ports
+  community.general.ufw:
+    rule: allow
+    port: "{{ item['port'] }}"
+    state: enabled
+    proto: "{{ item['protocol'] }}"
+    comment: "{{ item['label'] }}"
+  loop:
+    - "{{ ufw_default_ports }}"

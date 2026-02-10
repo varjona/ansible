@@ -1,5 +1,10 @@
 ---
 
+ufw_default_ports:
+  - "port": "22"
+    "protocol": "tcp"
+    "label": "ssh"
+
 ufw_files_needed:
   - "/etc/ufw/before.rules"
   - "/etc/ufw/before6.rules"
