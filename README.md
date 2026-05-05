@@ -9,7 +9,8 @@ Welcome to my Ansible-focused repository! The Ansible Home Cluster Repository is
 # Description
 What it does:
 
-- Sets up a Cockpit Cluster
+- Sets up a Webmin server on all machines (todo)
+- Sets up a Nagios server and agent on respective machines (todo)
 - Sets up Pi-Hole (todo)
 - Sets up a Firewall (UFW) (in-progress)
 - Sets up a K3S Cluster (todo)
