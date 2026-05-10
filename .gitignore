@@ -1,4 +1,3 @@
-ansible.cfg
 
 inventory/*
 !inventory/hosts.base
@@ -7,3 +6,4 @@ inventory/*
 
 .idea/
 .idea/vcs.xml
+ansible.cfg
