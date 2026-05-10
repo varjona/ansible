@@ -1,0 +1,4 @@
+---
+- hosts: webmin_servers
+  roles:
+    - webmin_roles

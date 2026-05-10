@@ -1,0 +1,6 @@
+---
+
+- name: install webmin
+  ansible.builtin.package:
+    name: webmin
+    state: present
