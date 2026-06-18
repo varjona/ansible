@@ -6,4 +6,4 @@ inventory/*
 
 .idea/
 .idea/vcs.xml
-ansible.cfg
+.continue
