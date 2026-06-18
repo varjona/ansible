@@ -17,11 +17,6 @@ rpi_4
 # Pi-hole nodes
 [pi_hole_nodes]
 
-# Cockpit webservers
-[cockpit_webservers]
-
-# Ajanti servers
-[ajanti_servers]
 
 # Web hosting nodes
 [web_nodes]
