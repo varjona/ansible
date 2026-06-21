@@ -1,0 +1,6 @@
+---
+
+- name: install vagrant and virtualbox
+  ansible.builtin.package:
+    name: "{{ pkgs_to_install }}"
+    state: present
