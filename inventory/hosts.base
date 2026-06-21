@@ -1,5 +1,8 @@
 localhost   ansible_connection=local
 
+# Ansible control nodes
+[ansible_master_nodes]
+
 # RPi 3B+ nodes
 [rpi_3bp]
 
@@ -16,12 +19,6 @@ rpi_4
 
 # Pi-hole nodes
 [pi_hole_nodes]
-
-# Cockpit webservers
-[cockpit_webservers]
-
-# Ajanti servers
-[ajanti_servers]
 
 # Web hosting nodes
 [web_nodes]
@@ -57,3 +54,7 @@ ks_agents
 
 # VM Hosts
 [vm_hosts]
+
+# Webmin
+# Everyone else is a client (Webmin Cluster)
+[webmin_servers]
