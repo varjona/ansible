@@ -1,5 +1,0 @@
----
-
-- hosts: ks_agents
-  roles:
-    - k3s_cluster_roles/agent

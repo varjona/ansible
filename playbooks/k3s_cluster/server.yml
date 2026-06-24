@@ -1,5 +1,0 @@
----
-
-- hosts: ks_servers
-  roles:
-    - k3s_cluster_roles/server
