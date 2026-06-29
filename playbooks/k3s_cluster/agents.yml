@@ -1,0 +1,7 @@
+---
+
+- hosts: ks_agents
+  roles:
+    - preconf_install
+    - config
+    - service_check

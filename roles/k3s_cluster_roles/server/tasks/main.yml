@@ -1,6 +1,0 @@
----
-- name: install and setup K3S cluster
-  block:
-    # Install k3s
-    - name: Install K3S
-      ansible.builtin.shell: curl -sfL https://get.k3s.io | sh -
